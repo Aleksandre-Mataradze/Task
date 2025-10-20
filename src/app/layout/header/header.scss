@@ -1,0 +1,52 @@
+@import '../../../styles/variables';
+@import '../../../styles/animations';
+
+.header-main{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: $secondaryBgColor;
+    position: relative;
+    z-index: $z-header;
+
+    .content{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+
+        .logo{
+            padding: 10px 4px;
+            cursor: pointer;
+        }
+
+        .date{
+            color: $primaryFontColor;
+        }
+    }
+
+    .hamburger-menu{
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        padding: 20px;
+
+        span{
+            width: 30px;
+            height: 2px;
+            background-color: $WhiteBgColor;
+            border-radius: 24px;
+        }
+    }
+
+    .nav{
+        position: absolute;
+        left: 0px;
+        bottom: -85px;
+        z-index: $z-overlay;
+    }
+}
