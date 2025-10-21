@@ -1,0 +1,73 @@
+@import '../../../styles/variables';
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    background-color: $primaryBgColor;
+    padding: 80px 0;
+
+
+    .card-list{
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+    
+        .card{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            flex: 1 1 200px;
+            background-color: $WhiteBgColor;
+            border: 2px solid $secondaryBgColor;
+            border-radius: 12px;
+            background-color: $CardBgColor;
+            
+
+    
+            .card-header{
+                padding: 6px 0 0 0;
+                text-align: center;
+
+                .user-name{
+                    border-bottom: 2px solid $secondaryBgColor;
+                }
+            }
+    
+            .card-content{
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                padding: 10px 10px;
+            }
+
+            .card-footer{
+
+                
+                button{
+                    height: 100%;
+                    width: 100%;
+                    padding: 4px 0;
+                    border: none;
+                    border-bottom-left-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    background-color: $secondaryBgColor;
+                    color: $primaryFontColor;
+                    transition-property: background-color, color;
+                    transition-duration: 0.3s;
+                    transition-timing-function: ease-out;
+                }
+
+                button:hover{
+                    cursor: pointer;
+                    background-color: $primaryFontColor;
+                    color: $secondaryBgColor;
+                }
+            }
+        }
+    }
+}
