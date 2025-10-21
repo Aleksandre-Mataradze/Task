@@ -1,1 +1,15 @@
-<p>posts works!</p>
+<div class="card-container">
+    <section class="card-list">
+        <article class="card" *ngFor="let p of posts(); trackBy: trackByID">
+            <div class="card-header">
+                <h3 class="user-name">{{ p.title }}</h3>
+            </div>
+            <div class="card-content">
+                <p> {{ p.body }} </p>
+            </div>
+            <div class="card-footer">
+                <button>Posts</button>
+            </div>
+        </article>
+    </section>
+</div>
