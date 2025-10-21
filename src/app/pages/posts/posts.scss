@@ -48,25 +48,25 @@
             .card-footer{
 
                 
-                button{
-                    height: 100%;
-                    width: 100%;
-                    padding: 4px 0;
-                    border: none;
-                    border-bottom-left-radius: 6px;
-                    border-bottom-right-radius: 6px;
-                    background-color: $secondaryBgColor;
-                    color: $primaryFontColor;
-                    transition-property: background-color, color;
-                    transition-duration: 0.3s;
-                    transition-timing-function: ease-out;
-                }
+                // button{
+                //     height: 100%;
+                //     width: 100%;
+                //     padding: 4px 0;
+                //     border: none;
+                //     border-bottom-left-radius: 6px;
+                //     border-bottom-right-radius: 6px;
+                //     background-color: $secondaryBgColor;
+                //     color: $primaryFontColor;
+                //     transition-property: background-color, color;
+                //     transition-duration: 0.3s;
+                //     transition-timing-function: ease-out;
+                // }
 
-                button:hover{
-                    cursor: pointer;
-                    background-color: $primaryFontColor;
-                    color: $secondaryBgColor;
-                }
+                // button:hover{
+                //     cursor: pointer;
+                //     background-color: $primaryFontColor;
+                //     color: $secondaryBgColor;
+                // }
             }
         }
     }

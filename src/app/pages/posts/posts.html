@@ -1,6 +1,6 @@
 <div class="card-container">
     <section class="card-list">
-        <article class="card" *ngFor="let p of posts(); trackBy: trackByID">
+        <article class="card" *ngFor="let p of posts(); trackBy: trackByID"> <!-- Displays List of posts -->
             <div class="card-header">
                 <h3 class="user-name">{{ p.title }}</h3>
             </div>
@@ -8,7 +8,7 @@
                 <p> {{ p.body }} </p>
             </div>
             <div class="card-footer">
-                <button>Posts</button>
+                <!-- <button>Posts</button> -->
             </div>
         </article>
     </section>

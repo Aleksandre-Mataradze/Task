@@ -29,7 +29,6 @@ export class Header {
 
  ToggleOverlay() {
   this.overlayIsActive.update(value => !value);
-  console.log(this.overlayIsActive());
  }
 
 }

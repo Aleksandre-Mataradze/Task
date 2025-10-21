@@ -7,5 +7,6 @@ export const routes: Routes = [
     { path: '', component: Table}, // default route
     { path: 'users', component: Users}, // default route
     { path: 'posts', component: Posts}, // default route
+    { path: 'posts/:userId', component: Posts}, // default route
     { path: '**', redirectTo: '', pathMatch: 'full' } // wildcard route
 ];

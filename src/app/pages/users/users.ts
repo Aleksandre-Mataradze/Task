@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -13,12 +14,12 @@ export class Users implements OnInit {
   users = signal<any[]>([]);
 
   private usersService = inject(UsersService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.usersService.getUsers()
     .subscribe({
       next: (data) => {
-        console.log(data);
         this.users.set(data);
       },
       error: (error) => console.error(error)
@@ -27,5 +28,14 @@ export class Users implements OnInit {
 
   trackByID(index: number, user: any): number {
     return user.id
+  }
+
+  redirectToUserPosts(userId: number): void {
+    if (userId){
+      this.router.navigate(['/posts', userId])
+    }
+    else{
+      return;
+    }
   }
 }

@@ -10,7 +10,7 @@ export class PostsService {
 
     private http = inject(HttpClient);
 
-    getUsers(): Observable<any> {
+    GetPosts(userId?: number): Observable<any> {
         return this.http.get('https://jsonplaceholder.typicode.com/posts')
     }
 }

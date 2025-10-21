@@ -1,7 +1,12 @@
+@import './fonts';
 
 // Background Colors
 $primaryBgColor: #00141e;
 $secondaryBgColor: #001e28;
+$primaryTableBgColor: #001e28;
+$secondaryTableBgColor: #00293b; 
+$primaryBtnBgColor: #189541;
+
 $WhiteBgColor: #ffffff;
 $CardBgColor: #DCDCDC;
 
@@ -12,3 +17,11 @@ $secondaryFontColor: #7c7d80;
 // Z-Index Variables
 $z-header: 100;
 $z-overlay: 50;
+
+// Fonts
+$robotoRegular: 'robotoRegular';
+
+// Font Sizes
+$fontSmall: 12px;
+$fontStandart: 16px;
+$fontBig: 24;

@@ -1,0 +1,69 @@
+@import '../../../styles/_variables';
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 60px 0;
+    gap: 40px;
+
+    section{
+        width: 50%;
+    
+        .table-container{
+            width: 100%;
+            
+            table{
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0 2px;
+    
+                tbody{
+                    
+                    tr{
+    
+                        .table-data-odd{
+                            padding: 6px 10px;
+                            background-color: $primaryTableBgColor;
+                            color: white;
+                            font-size: $fontSmall;
+                        }
+    
+                        .table-data-even{
+                            padding: 6px 10px;
+                            background-color: $secondaryTableBgColor;
+                            color: white;
+                            font-size: $fontSmall;
+                        }
+                        
+                        td{
+
+                            button{
+                                display: block;
+                                width: 100%;
+                                padding: 6px 10px;
+                                border: none;
+                                color: inherit;
+                                font-size: $fontSmall;
+                                text-align: center;
+                                cursor: pointer;
+                                background-color: $primaryBtnBgColor;
+                                border-radius: 10px;
+
+                                transition-property: background-color, color;
+                                transition-timing-function: ease;
+                                transition-duration: 0.3s;
+                            }
+
+                            button:hover{
+                                background-color: $WhiteBgColor;
+                                color: $primaryBtnBgColor;
+                            }
+                        }
+                    }   
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -10,19 +12,40 @@ import { CommonModule } from '@angular/common';
 })
 export class Posts {
   
-  posts = signal<any[]>([]);
+  posts = signal<any[] | any>([]);
 
+  userId: number | null = null;
+  
   private postService = inject(PostsService);
 
+  constructor(private route: ActivatedRoute) {}
+
+
   ngOnInit(): void {
-    this.postService.getUsers()
+
+    if (this.route.snapshot.paramMap.get('userId')) { // Check if userId parameter exists
+      this.userId = Number(this.route.snapshot.paramMap.get('userId'));
+
+      this.postService.GetPosts(this.userId)
+      .pipe(
+        map(post => post.filter((post: any) => post.userId === this.userId)) // Filter posts by userId
+      )
+      .subscribe({
+        next: (data) => {
+          this.posts.set(data);
+        }
+      })
+    }
+    else{ // If no userId parameter, fetch all posts
+    this.postService.GetPosts()
     .subscribe({
       next: (data) => {
-        console.log(data);
         this.posts.set(data);
+        console.log(data)
       },
       error: (error) => console.error(error)
     });
+    }
   }
 
   trackByID(index: number, post: any): number {

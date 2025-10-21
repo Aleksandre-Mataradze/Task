@@ -1,0 +1,39 @@
+<div class="main-content">
+    <section>
+        <div class="table-container">
+            <table>
+                <tbody>
+                    <tr *ngFor="let user of userList(); trackBy: trackByID">
+                        <td class="table-data-odd">{{ user.name }}</td>
+                        <td class="table-data-even">{{ user.phone }}</td>
+                        <td class="table-data-odd">{{ user.email }}</td>
+                        <td class="table-data-even">{{ user.company.name }}</td>
+                        <td class="table-data-odd">
+                            <button (click)="redirectToUserPosts(user.id)">Posts</button>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section>
+        <div class="table-container">
+            <table>
+                <tbody>
+                    <tr *ngFor="let post of postListWithUserName(); trackBy: trackByID">
+                        <td class="table-data-odd">{{ post.userName }}</td>
+                        <td class="table-data-even">{{ post.title }}</td>
+                        <td class="table-data-odd">
+                            <button (click)="TogglePostPopUp()">Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    @if (postPopUp()) {
+        <app-post-modal ></app-post-modal>
+    }
+</div>

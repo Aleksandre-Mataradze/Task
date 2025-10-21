@@ -1,6 +1,6 @@
 <div class="card-container">
     <section class="card-list">
-        <article class="card" *ngFor="let u of users(); trackBy: trackByID">
+        <article class="card" *ngFor="let u of users(); trackBy: trackByID"> <!-- Displays list of Users -->
             <div class="card-header">
                 <h3 class="user-name">{{ u.name }}</h3>
             </div>
@@ -10,7 +10,7 @@
                 <p><strong>Company:</strong> {{ u.company.name }} </p>
             </div>
             <div class="card-footer">
-                <button>Posts</button>
+                <button (click)="redirectToUserPosts(u.id)">Posts</button>
             </div>
         </article>
     </section>
