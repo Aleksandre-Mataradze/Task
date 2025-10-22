@@ -1,11 +1,12 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, signal } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { PostsService } from '../../services/posts.service';
 import { CommonModule } from '@angular/common';
-import { combineLatest, merge } from 'rxjs';
+import { combineLatest, firstValueFrom } from 'rxjs';
 import { PostsWithUserName } from '../../interfaces/postsWithUserName.interface';
 import { Router } from '@angular/router';
-import { PostModal } from "../../shared/post-modal/post-modal";
+import { PostModalService } from '../../services/post-modal.service';
+import { PostModal } from "./post-modal/post-modal";
 
 @Component({
   selector: 'app-table',
@@ -17,21 +18,25 @@ export class Table implements OnInit {
 
   userList = signal<any[]>([]);
   postListWithUserName = signal<PostsWithUserName[]>([]);
-  postPopUp = signal<boolean>(false)
+  postDetailsPopUp = signal<boolean>(false)
 
-  private users = inject(UsersService)
-  private posts = inject(PostsService)
-  private router = inject(Router)
+  private _users = inject(UsersService)
+  private _posts = inject(PostsService)
+  private _router = inject(Router)
+
+  selectedPostTitle: string = '';
+  selectedPostDescription: string = '';
 
   ngOnInit(): void {
 
     this.getUsers();
 
     this.getPostsWithUserName();
+
   }  
 
   getUsers() {
-    this.users.getUsers()
+    this._users.getUsers()
     .subscribe(
       {
         next: (data) => {
@@ -47,8 +52,8 @@ export class Table implements OnInit {
 
   getPostsWithUserName() {
     combineLatest([
-      this.posts.GetPosts(),
-      this.users.getUsers()
+      this._posts.GetPosts(),
+      this._users.getUsers()
     ])
     .subscribe(([posts, users]) =>{
       const merged: PostsWithUserName[] = posts.map((post: { id: number; title: string; body: string; userId: number; }) => ({
@@ -71,18 +76,25 @@ export class Table implements OnInit {
 
   redirectToUserPosts(userId: number): void {
     if (userId){
-      this.router.navigate(['/posts', userId])
+      this._router.navigate(['/posts', userId])
     }
     else{
       return;
     }
   }
 
-  TogglePostPopUp(): void {
-    this.postPopUp.set(true)
+  togglePostPopUp(postTitle: string, postBody: string): void {
+    this.postDetailsPopUp.set(true)
+
+    this.selectedPostTitle = postTitle;
+    this.selectedPostDescription = postBody
+  }
+  
+  closePostPopUp(data: any): void{
+    this.postDetailsPopUp.set(data)
   }
 
-    trackByID(index: number, data: any): number {
+  trackByID(index: number, data: any): number {
     return data.id
   }
 }

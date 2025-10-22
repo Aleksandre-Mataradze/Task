@@ -27,14 +27,14 @@
                             padding: 6px 10px;
                             background-color: $primaryTableBgColor;
                             color: white;
-                            font-size: $fontSmall;
+                            font-size: $fontMedium;
                         }
     
                         .table-data-even{
                             padding: 6px 10px;
                             background-color: $secondaryTableBgColor;
                             color: white;
-                            font-size: $fontSmall;
+                            font-size: $fontMedium;
                         }
                         
                         td{
@@ -45,7 +45,7 @@
                                 padding: 6px 10px;
                                 border: none;
                                 color: inherit;
-                                font-size: $fontSmall;
+                                font-size: $fontMedium;
                                 text-align: center;
                                 cursor: pointer;
                                 background-color: $primaryBtnBgColor;
@@ -57,11 +57,84 @@
                             }
 
                             button:hover{
-                                background-color: $WhiteBgColor;
+                                background-color: $whiteColor;
                                 color: $primaryBtnBgColor;
                             }
                         }
                     }   
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .main-content{
+
+        section{
+            width: 80%;
+        }
+    }
+}
+
+@media (max-width: 650px){
+    .main-content{
+
+        section{
+        width: 50%;
+    
+            .table-container{
+                width: 100%;
+                
+                table{
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0 2px;
+
+                    tbody{
+                        
+                        tr{
+
+                            .table-data-odd{
+                                padding: 6px 10px;
+                                background-color: $primaryTableBgColor;
+                                color: white;
+                                font-size: $fontMedium;
+                            }
+
+                            .table-data-even{
+                                padding: 6px 10px;
+                                background-color: $secondaryTableBgColor;
+                                color: white;
+                                font-size: $fontMedium;
+                            }
+                            
+                            td{
+
+                                button{
+                                    display: block;
+                                    width: 100%;
+                                    padding: 6px 10px;
+                                    border: none;
+                                    color: inherit;
+                                    font-size: $fontMedium;
+                                    text-align: center;
+                                    cursor: pointer;
+                                    background-color: $primaryBtnBgColor;
+                                    border-radius: 10px;
+
+                                    transition-property: background-color, color;
+                                    transition-timing-function: ease;
+                                    transition-duration: 0.3s;
+                                }
+
+                                button:hover{
+                                    background-color: $whiteColor;
+                                    color: $primaryBtnBgColor;
+                                }
+                            }
+                        }   
+                    }
                 }
             }
         }

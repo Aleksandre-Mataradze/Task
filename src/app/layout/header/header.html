@@ -7,12 +7,10 @@
             <span> {{ currentDate() | date:'medium'}}</span>
         </div>
     </div>
-    <div class="hamburger-menu" (click)="ToggleMenu(); ToggleOverlay()">
+    <div class="hamburger-menu" (click)="ToggleOverlay()">
         <span></span>
         <span></span>
         <span></span>
     </div>
-    @if (menuIsActive()){
-        <app-navigation class="nav"></app-navigation>
-    }
+        <app-navigation class="nav" [class.active]="overlayIsActive()"></app-navigation>
 </div>

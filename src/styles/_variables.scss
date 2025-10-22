@@ -3,12 +3,13 @@
 // Background Colors
 $primaryBgColor: #00141e;
 $secondaryBgColor: #001e28;
+
 $primaryTableBgColor: #001e28;
-$secondaryTableBgColor: #00293b; 
+$secondaryTableBgColor: #00293b;
+
 $primaryBtnBgColor: #189541;
 
-$WhiteBgColor: #ffffff;
-$CardBgColor: #DCDCDC;
+$cardBgColor: #DCDCDC;
 
 // Font Colors
 $primaryFontColor: #4c4c4c;
@@ -17,11 +18,15 @@ $secondaryFontColor: #7c7d80;
 // Z-Index Variables
 $z-header: 100;
 $z-overlay: 50;
+$z-blur: 25;
 
 // Fonts
 $robotoRegular: 'robotoRegular';
 
 // Font Sizes
-$fontSmall: 12px;
+$fontMedium: 12px;
 $fontStandart: 16px;
-$fontBig: 24;
+$fontBig: 24px;
+
+// Colors
+$whiteColor: #ffffff;

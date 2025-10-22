@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { Navigation } from "../navigation/navigation";
 import { Router } from '@angular/router';
@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class Header {
 
  currentDate = signal(new Date());
- menuIsActive = signal(false);
  overlayIsActive = signal(false);
 
  constructor(private router: Router) {
@@ -21,10 +20,6 @@ export class Header {
 
  RedirectToHome() {
   this.router.navigate(['']);
- }
-
- ToggleMenu() {
-    this.menuIsActive.update(value => !value);
  }
 
  ToggleOverlay() {

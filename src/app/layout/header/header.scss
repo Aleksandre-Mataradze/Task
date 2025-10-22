@@ -38,7 +38,7 @@
         span{
             width: 30px;
             height: 2px;
-            background-color: $WhiteBgColor;
+            background-color: $whiteColor;
             border-radius: 24px;
         }
     }
@@ -48,5 +48,13 @@
         left: 0px;
         bottom: -85px;
         z-index: $z-overlay;
+
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+    }
+
+    .nav.active{
+        opacity: 1;
     }
 }

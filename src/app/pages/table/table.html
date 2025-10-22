@@ -25,7 +25,7 @@
                         <td class="table-data-odd">{{ post.userName }}</td>
                         <td class="table-data-even">{{ post.title }}</td>
                         <td class="table-data-odd">
-                            <button (click)="TogglePostPopUp()">Details</button>
+                            <button (click)="togglePostPopUp(post.title, post.body)">Details</button>
                         </td>
                     </tr>
                 </tbody>
@@ -33,7 +33,11 @@
         </div>
     </section>
 
-    @if (postPopUp()) {
-        <app-post-modal ></app-post-modal>
+    @if (postDetailsPopUp()) {
+        <app-post-modal 
+        (close)="closePostPopUp($event)"
+        [postTitle]="selectedPostTitle"
+        [postDescription]="selectedPostDescription">
+    </app-post-modal>
     }
 </div>
