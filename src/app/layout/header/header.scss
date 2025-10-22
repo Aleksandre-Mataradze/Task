@@ -2,11 +2,11 @@
 @import '../../../styles/animations';
 
 .header-main{
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
     background-color: $secondaryBgColor;
-    position: relative;
     z-index: $z-header;
 
     .content{
@@ -49,12 +49,156 @@
         bottom: -85px;
         z-index: $z-overlay;
 
+        pointer-events: none;
         opacity: 0;
         transition: opacity 0.3s ease;
 
     }
 
     .nav.active{
+        pointer-events: all;
         opacity: 1;
+    }
+}
+
+@media (max-width: 540px){
+    .header-main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row-reverse;
+        background-color: $secondaryBgColor;
+        position: relative;
+        z-index: $z-header;
+
+        .content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+
+            .logo {
+                padding: 10px 4px;
+                cursor: pointer;
+            }
+
+            .date {
+                color: $primaryFontColor;
+
+                span{
+                    font-size: $fontMedium;
+                }
+            }
+        }
+
+        .hamburger-menu {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            padding: 20px;
+            position: absolute;
+
+            span {
+                width: 30px;
+                height: 2px;
+                background-color: $whiteColor;
+                border-radius: 24px;
+            }
+        }
+
+        .nav {
+            border-top: 2px solid;
+            border-color: color-mix(in oklab, #189541 30%, transparent);
+            position: absolute;
+            left: 0px;
+            bottom: -85px;
+            width: 100%;
+            z-index: $z-overlay;
+
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+}
+
+@media (max-width: 540px){
+    .header-main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row-reverse;
+        background-color: $secondaryBgColor;
+        position: relative;
+        z-index: $z-header;
+
+        .content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+
+            .logo {
+                padding: 10px 4px;
+                cursor: pointer;
+            }
+
+            .date {
+                color: $primaryFontColor;
+
+                span{
+                    font-size: $fontSmall;
+                }
+            }
+        }
+
+        .hamburger-menu {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            padding: 20px;
+            position: absolute;
+
+            span {
+                width: 30px;
+                height: 2px;
+                background-color: $whiteColor;
+                border-radius: 24px;
+            }
+        }
+
+        .nav {
+            border-top: 2px solid;
+            border-color: color-mix(in oklab, #189541 30%, transparent);
+            position: absolute;
+            left: 0px;
+            bottom: -85px;
+            width: 100%;
+            z-index: $z-overlay;
+
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav.active {
+            opacity: 1;
+            pointer-events: all;
+        }
     }
 }

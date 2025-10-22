@@ -9,7 +9,8 @@
                         <td class="table-data-odd">{{ user.email }}</td>
                         <td class="table-data-even">{{ user.company.name }}</td>
                         <td class="table-data-odd">
-                            <button (click)="redirectToUserPosts(user.id)">Posts</button>
+                            <button class="text-button" (click)="redirectToUserPosts(user.id)">Posts</button>
+                            <button class="icon-button" (click)="redirectToUserPosts(user.id)"><i class="fa-solid fa-newspaper"></i></button>
                         </td>
                         
                     </tr>

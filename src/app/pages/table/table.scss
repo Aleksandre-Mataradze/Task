@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    justify-content: center;
     align-items: center;
     padding: 60px 0;
     gap: 40px;
@@ -39,8 +40,15 @@
                         
                         td{
 
-                            button{
+                            .text-button{
                                 display: block;
+                            }
+
+                            .icon-button{
+                                display: none;
+                            }
+
+                            button{
                                 width: 100%;
                                 padding: 6px 10px;
                                 border: none;
@@ -81,7 +89,7 @@
     .main-content{
 
         section{
-        width: 50%;
+        width: 80%;
     
             .table-container{
                 width: 100%;
@@ -96,28 +104,177 @@
                         tr{
 
                             .table-data-odd{
-                                padding: 6px 10px;
+                                padding: 4px 8px;
                                 background-color: $primaryTableBgColor;
                                 color: white;
-                                font-size: $fontMedium;
+                                font-size: $fontSmall;
                             }
 
                             .table-data-even{
-                                padding: 6px 10px;
+                                padding: 4px 8px;
                                 background-color: $secondaryTableBgColor;
                                 color: white;
-                                font-size: $fontMedium;
+                                font-size: $fontSmall;
                             }
                             
                             td{
 
+                            .text-button{
+                                display: block;
+                            }
+
+                            .icon-button{
+                                display: none;
+                            }
+
                                 button{
-                                    display: block;
                                     width: 100%;
-                                    padding: 6px 10px;
+                                    padding: 4px 8px;
                                     border: none;
                                     color: inherit;
-                                    font-size: $fontMedium;
+                                    font-size: $fontSmall;
+                                    text-align: center;
+                                    cursor: pointer;
+                                    background-color: $primaryBtnBgColor;
+                                    border-radius: 10px;
+
+                                    transition-property: background-color, color;
+                                    transition-timing-function: ease;
+                                    transition-duration: 0.3s;
+                                }
+
+                                button:hover{
+                                    background-color: $whiteColor;
+                                    color: $primaryBtnBgColor;
+                                }
+                            }
+                        }   
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 540px){
+    .main-content{
+
+        section{
+        width: 80%;
+    
+            .table-container{
+                width: 100%;
+                
+                table{
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0 2px;
+
+                    tbody{
+                        
+                        tr{
+
+                            .table-data-odd{
+                                padding: 2px 3px;
+                                background-color: $primaryTableBgColor;
+                                color: white;
+                                font-size: $fontXSmall;
+                            }
+
+                            .table-data-even{
+                                padding: 2px 3px;
+                                background-color: $secondaryTableBgColor;
+                                color: white;
+                                font-size: $fontXSmall;
+                            }
+                            
+                            td{
+
+                            .icon-button{
+                                display: none;
+                            }
+
+                            .text-button{
+                                display: block;
+                            }
+
+                                button{
+                                    width: 100%;
+                                    padding: 2px 3px;
+                                    border: none;
+                                    color: inherit;
+                                    font-size: $fontXSmall;
+                                    text-align: center;
+                                    cursor: pointer;
+                                    background-color: $primaryBtnBgColor;
+                                    border-radius: 10px;
+
+                                    transition-property: background-color, color;
+                                    transition-timing-function: ease;
+                                    transition-duration: 0.3s;
+                                }
+
+                                button:hover{
+                                    background-color: $whiteColor;
+                                    color: $primaryBtnBgColor;
+                                }
+                            }
+                        }   
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 420px){
+    .main-content{
+
+        section{
+        width: 80%;
+    
+            .table-container{
+                width: 100%;
+                
+                table{
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0 2px;
+
+                    tbody{
+                        
+                        tr{
+
+                            .table-data-odd{
+                                padding: 2px 5px;
+                                background-color: $primaryTableBgColor;
+                                color: white;
+                                font-size: $fontXXSmall;
+                            }
+
+                            .table-data-even{
+                                padding: 2px 5px;
+                                background-color: $secondaryTableBgColor;
+                                color: white;
+                                font-size: $fontXXSmall;
+                            }
+                            
+                            td{
+
+                            .text-button{
+                                display: none;
+                            }
+
+                            .icon-button{
+                                display: block;
+                            }
+
+                                button{
+                                    width: 100%;
+                                    padding: 2px 5px;
+                                    border: none;
+                                    color: inherit;
+                                    font-size: $fontXXSmall;
                                     text-align: center;
                                     cursor: pointer;
                                     background-color: $primaryBtnBgColor;
