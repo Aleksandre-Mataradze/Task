@@ -18,13 +18,19 @@ export class Posts {
   
   private postService = inject(PostsService);
 
-  constructor(private route: ActivatedRoute) {}
+  private _route = inject(ActivatedRoute)
 
 
   ngOnInit(): void {
 
-    if (this.route.snapshot.paramMap.get('userId')) { // Check if userId parameter exists
-      this.userId = Number(this.route.snapshot.paramMap.get('userId'));
+    this.redirectToUserPosts()
+
+  }
+
+  redirectToUserPosts(): void{
+
+    if (this._route.snapshot.paramMap.get('userId')) { // Check if userId parameter exists
+      this.userId = Number(this._route.snapshot.paramMap.get('userId'));
 
       this.postService.GetPosts(this.userId)
       .pipe(

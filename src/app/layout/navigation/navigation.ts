@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Header } from '../header/header';
 
@@ -10,18 +10,16 @@ import { Header } from '../header/header';
 })
 export class Navigation {
 
-  constructor(
-    private router: Router,
-    private header: Header
-  ){}
+  private _router = inject(Router)
+  private _header = inject(Header)
 
   RedirectToUsers() {
-    this.router.navigate(['/users']);
-    this.header.ToggleOverlay();
+    this._router.navigate(['/users']);
+    this._header.ToggleOverlay();
   }
 
   RedirectToPosts() {
-    this.router.navigate(['/posts']);
-    this.header.ToggleOverlay();
+    this._router.navigate(['/posts']);
+    this._header.ToggleOverlay();
   }
 }

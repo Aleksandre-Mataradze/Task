@@ -1,5 +1,5 @@
-import { DatePipe, NgClass } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Navigation } from "../navigation/navigation";
 import { Router } from '@angular/router';
 
@@ -9,17 +9,19 @@ import { Router } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
-export class Header {
+export class Header implements OnInit {
 
  currentDate = signal(new Date());
  overlayIsActive = signal(false);
 
- constructor(private router: Router) {
-  setInterval(() => this.currentDate.set(new Date()), 1000); // Update Date & Time every second
- }
+ private _router = inject(Router)
+
+  ngOnInit(): void {
+    setInterval(() => this.currentDate.set(new Date()), 1000); // Update Date & Time every second
+  }
 
  RedirectToHome() {
-  this.router.navigate(['']);
+  this._router.navigate(['']);
  }
 
  ToggleOverlay() {

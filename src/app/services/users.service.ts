@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +14,8 @@ export class UsersService {
         return this.http.get('https://jsonplaceholder.typicode.com/users')
     }
 
-    getUserById(id: number): Observable<any> {
-        return this.http.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    getUser(id: number): Observable<any> {
+
+        return this.http.get(`https://jsonplaceholder.typicode.com/users${id}`)
     }
 }

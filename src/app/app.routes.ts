@@ -4,9 +4,9 @@ import { Users } from './pages/users/users';
 import { Posts } from './pages/posts/posts';
 
 export const routes: Routes = [
-    { path: '', component: Table}, // default route
-    { path: 'users', component: Users}, // default route
-    { path: 'posts', component: Posts}, // default route
-    { path: 'posts/:userId', component: Posts}, // default route
+    { path: '', loadComponent: () => import('./pages/table/table').then(c => c.Table)},
+    { path: 'users', loadComponent: () => import('./pages/users/users').then(c => c.Users) },
+    { path: 'posts', loadComponent: () => import('./pages/posts/posts').then(c => c.Posts) },
+    { path: 'posts/:userId', loadComponent: () => import('./pages/posts/posts').then(c => c.Posts) },
     { path: '**', redirectTo: '', pathMatch: 'full' } // wildcard route
 ];
