@@ -1,5 +1,4 @@
-@import '../../../styles/variables';
-@import '../../../styles/animations';
+@use '../../../styles/variables' as *;
 
 .header-main{
     position: relative;
