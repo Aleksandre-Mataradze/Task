@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
-import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-posts',
@@ -18,7 +18,7 @@ export class Posts {
   
   private postService = inject(PostsService);
 
-  private _route = inject(ActivatedRoute)
+  private _activeRoute = inject(ActivatedRoute)
 
 
   ngOnInit(): void {
@@ -29,8 +29,8 @@ export class Posts {
 
   redirectToUserPosts(): void{
 
-    if (this._route.snapshot.paramMap.get('userId')) { // Check if userId parameter exists
-      this.userId = Number(this._route.snapshot.paramMap.get('userId'));
+    if (this._activeRoute.snapshot.paramMap.get('userId')) { // Check if userId parameter exists
+      this.userId = Number(this._activeRoute.snapshot.paramMap.get('userId'));
 
       this.postService.GetPosts(this.userId)
       .pipe(

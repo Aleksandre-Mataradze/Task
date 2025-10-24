@@ -83,6 +83,11 @@ export class Table implements OnInit {
     }
   }
 
+  redirectToUserToDo(userId: number): void {
+    
+    this._router.navigate([`/todo`, userId]);
+  }
+
   togglePostPopUp(postTitle: string, postBody: string): void {
     this.postDetailsPopUp.set(true)
 

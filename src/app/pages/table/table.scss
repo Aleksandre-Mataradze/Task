@@ -25,10 +25,16 @@
                     tr{
     
                         .table-data-odd{
+
+                            height: 100%;
                             padding: 6px 10px;
                             background-color: $primaryTableBgColor;
                             color: white;
                             font-size: $fontMedium;
+
+                            .todo-icon{
+                                max-width: 36px;
+                            }
                         }
     
                         .table-data-even{
@@ -44,8 +50,8 @@
                                 display: block;
                             }
 
-                            .icon-button{
-                                display: none;
+                            .post-icon{
+                                display: block;
                             }
 
                             button{
@@ -111,7 +117,7 @@
                             }
 
                             .table-data-even{
-                                padding: 4px 8px;
+                                padding: 2px 4px;
                                 background-color: $secondaryTableBgColor;
                                 color: white;
                                 font-size: $fontSmall;
@@ -200,7 +206,7 @@
 
                                 button{
                                     width: 100%;
-                                    padding: 2px 3px;
+                                    padding: 2px 4px;
                                     border: none;
                                     color: inherit;
                                     font-size: $fontXSmall;
@@ -271,7 +277,7 @@
 
                                 button{
                                     width: 100%;
-                                    padding: 2px 5px;
+                                    padding: 1px 2px;
                                     border: none;
                                     color: inherit;
                                     font-size: $fontXXSmall;
@@ -296,4 +302,10 @@
             }
         }
     }
+}
+
+.display-flex-center{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

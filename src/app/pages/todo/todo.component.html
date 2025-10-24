@@ -1,0 +1,17 @@
+<div class="main-content">
+    <section>
+        <div class="todo-table-container">
+            <table>
+                <tbody>
+                    <tr *ngFor="let t of todos(); trackBy: trackByID">
+                        <td class="table-data-odd">{{ t.title }}</td>
+                        <td class="table-data-even">
+                            <i class="fa-solid fa-check completed" *ngIf="t.completed"></i>
+                            <i class="fa-solid fa-hourglass-start awaiting" *ngIf="!t.completed"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>

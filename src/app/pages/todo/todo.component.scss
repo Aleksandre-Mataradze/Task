@@ -1,0 +1,91 @@
+@use '../../../styles/variables' as *;
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+    gap: 40px;
+
+    section{
+        width: 50%;
+    
+        .todo-table-container{
+            width: 100%;
+            
+            table{
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0 2px;
+    
+                tbody{
+                    
+                    tr{
+    
+                        .table-data-odd{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 6px 10px;
+                            background-color: $primaryTableBgColor;
+                            color: white;
+                            font-size: $fontMedium;
+
+                            button{
+                                max-width: 36px;
+                            }
+                        }
+    
+                        .table-data-even{
+                            text-align: center;
+                            padding: 6px 10px;
+                            background-color: $secondaryTableBgColor;
+                            color: white;
+                            font-size: $fontMedium;
+                        }
+                        
+                        td{
+
+                            .icon-button{
+                                display: block;
+                            }
+
+                            button{
+                                width: 100%;
+                                padding: 6px 10px;
+                                border: none;
+                                color: inherit;
+                                font-size: $fontMedium;
+                                text-align: center;
+                                cursor: pointer;
+                                background-color: $primaryBtnBgColor;
+                                border-radius: 10px;
+
+                                transition-property: background-color, color;
+                                transition-timing-function: ease;
+                                transition-duration: 0.3s;
+                            }
+
+                            button:hover{
+                                background-color: $whiteColor;
+                                color: $primaryBtnBgColor;
+                            }
+                        }
+                    }   
+                }
+            }
+        }
+    }
+}
+
+.completed{
+
+    color: green;
+}
+
+.awaiting{
+
+    color: rgb(201, 164, 0);
+}
