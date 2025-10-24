@@ -22,19 +22,21 @@
             justify-content: space-between;
             gap: 16px;
             flex: 1 1 200px;
-            background-color: $whiteColor;
-            border: 2px solid $secondaryBgColor;
+            border: 2px solid;
+            color: $whiteColor;
             border-radius: 12px;
-            background-color: $cardBgColor;
+            background-color: $secondaryBgColor;
+            border-color: color-mix(in oklab, #189541 30%, transparent);
             
 
     
             .card-header{
                 padding: 6px 0 0 0;
                 text-align: center;
+                border-bottom: 2px solid #00293b;
 
                 .user-name{
-                    border-bottom: 2px solid $secondaryBgColor;
+
                 }
             }
     
@@ -46,15 +48,15 @@
             }
 
             .card-footer{
-
+                border-top: 2px solid #00293b;
                 
                 button{
                     height: 100%;
                     width: 100%;
                     padding: 4px 0;
                     border: none;
-                    border-bottom-left-radius: 6px;
-                    border-bottom-right-radius: 6px;
+                    border-bottom-left-radius: 8px;
+                    border-bottom-right-radius: 8px;
                     background-color: $secondaryBgColor;
                     color: $primaryFontColor;
                     transition-property: background-color, color;
@@ -64,7 +66,7 @@
 
                 button:hover{
                     cursor: pointer;
-                    background-color: $primaryFontColor;
+                    background-color: $whiteColor;
                     color: $secondaryBgColor;
                 }
             }

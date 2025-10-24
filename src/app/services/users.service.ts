@@ -10,11 +10,11 @@ export class UsersService {
 
     private http = inject(HttpClient);
 
-    getUsers(): Observable<any> {
+    getUsers(): Observable<any> { // Get Full List Of Users
         return this.http.get('https://jsonplaceholder.typicode.com/users')
     }
 
-    getUser(id: number): Observable<any> {
+    getUser(id: number): Observable<any> { // Get Single User Data Using ID
 
         return this.http.get(`https://jsonplaceholder.typicode.com/users${id}`)
     }

@@ -2,7 +2,7 @@
     <section class="card-list">
         <article class="card" *ngFor="let p of posts(); trackBy: trackByID"> <!-- Displays List of posts -->
             <div class="card-header">
-                <h3 class="user-name">{{ p.title }}</h3>
+                <h3 class="post-title">{{ p.title }}</h3>
             </div>
             <div class="card-content">
                 <p> {{ p.body }} </p>

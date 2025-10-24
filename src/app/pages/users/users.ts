@@ -24,7 +24,7 @@ export class Users implements OnInit {
 
   }
 
-  getUsers(userList?: number[]): void{
+  getUsers(userList?: number[]): void{ // Display User List, Depended on Search Input. If input is empty Displays full List of Data, if there is Input returns Users that match to the Data.
 
     if(userList && userList.length > 0){ // Displays Users By Search Input
 
@@ -49,11 +49,11 @@ export class Users implements OnInit {
     }
   }
 
-  trackByID(index: number, user: any): number {
+  trackByID(index: number, user: any): number { // TrackBy For Loop In DOM
     return user.id
   }
 
-  redirectToUserPosts(userId: number): void {
+  redirectToUserPosts(userId: number): void { // Routes to Posts Filtered By Users
     if (userId){
       this.router.navigate(['/posts', userId])
     }

@@ -11,7 +11,7 @@ export class PostModal {
   @Input() postDescription!: string;
   @Output() close = new EventEmitter<boolean>();
 
-  closePopUp(data: boolean): void {
+  closePopUp(data: boolean): void { // Emits boolean Value to Close Pop Up
     this.close.emit(data)
   }
 }

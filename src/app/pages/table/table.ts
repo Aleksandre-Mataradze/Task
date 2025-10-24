@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { combineLatest, firstValueFrom } from 'rxjs';
 import { PostsWithUserName } from '../../interfaces/postsWithUserName.interface';
 import { Router } from '@angular/router';
-import { PostModalService } from '../../services/post-modal.service';
 import { PostModal } from "./post-modal/post-modal";
 
 @Component({
@@ -35,13 +34,12 @@ export class Table implements OnInit {
 
   }  
 
-  getUsers() {
+  getUsers() { // Get All User Data
     this._users.getUsers()
     .subscribe(
       {
         next: (data) => {
           this.userList.set(data);
-          console.log(data);
         },
         error: (error) => {
           console.error(error);
@@ -50,7 +48,7 @@ export class Table implements OnInit {
     )
   }
 
-  getPostsWithUserName() {
+  getPostsWithUserName() { // Get All Post Data With UserName Inserted
     combineLatest([
       this._posts.GetPosts(),
       this._users.getUsers()
@@ -65,16 +63,10 @@ export class Table implements OnInit {
       }))
 
       this.postListWithUserName.set(merged)
-      console.log(this.postListWithUserName())
     })
   }
 
-  getUserFullName(userId: number): string{
-    const user = this.userList().find(u => u.id === userId);
-    return user ? user.name : 'Unknown User';
-  }
-
-  redirectToUserPosts(userId: number): void {
+  redirectToUserPosts(userId: number): void { // Routes to Posts Filtered By User
     if (userId){
       this._router.navigate(['/posts', userId])
     }
@@ -83,23 +75,23 @@ export class Table implements OnInit {
     }
   }
 
-  redirectToUserToDo(userId: number): void {
+  redirectToUserToDo(userId: number): void { // Routes to User's Todo List
     
     this._router.navigate([`/todo`, userId]);
   }
 
-  togglePostPopUp(postTitle: string, postBody: string): void {
+  togglePostPopUp(postTitle: string, postBody: string): void { // Enables Post Details Pop Up
     this.postDetailsPopUp.set(true)
 
     this.selectedPostTitle = postTitle;
     this.selectedPostDescription = postBody
   }
   
-  closePostPopUp(data: any): void{
+  closePostPopUp(data: any): void{ // Disables Post Details Pop Up
     this.postDetailsPopUp.set(data)
   }
 
-  trackByID(index: number, data: any): number {
+  trackByID(index: number, data: any): number { // TrackBy For Loop
     return data.id
   }
 }

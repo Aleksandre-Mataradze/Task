@@ -17,32 +17,29 @@ export class TodoComponent implements OnInit{
   private _todoService = inject(TodoService)
 
   ngOnInit(): void {
-
     
     this.getUserTodoList()
     
-    console.log(this.getUserId())
   }
 
-  getUserId(): number{
+  getUserId(): number{ // Catches Segment Parameter
 
     return Number(this._activeRoute.snapshot.paramMap.get('userId'));
   }
 
-  getUserTodoList(): void {
+  getUserTodoList(): void { // Get Todo List By User
 
     this._todoService.getTodoByUserId(this.getUserId())
     .subscribe({
       next: (data) => {
         
-        console.log(data)
         this.todos.set(data)
       },
       error: (error) => console.log(error)
     })
   }
 
-  trackByID(todo: any): number {
+  trackByID(todo: any): number { // TrackBy For Loop in DOM
     return todo.id
   }
 }

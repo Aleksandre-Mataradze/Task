@@ -20,11 +20,11 @@ export class Header implements OnInit {
     setInterval(() => this.currentDate.set(new Date()), 1000); // Update Date & Time every second
   }
 
- RedirectToHome() {
+ RedirectToHome() { // Redirects to Home Page
   this._router.navigate(['']);
  }
 
- ToggleOverlay() {
+ ToggleOverlay() { // Enables/Disables Navigation Overlay
   this.overlayIsActive.update(value => !value);
  }
 

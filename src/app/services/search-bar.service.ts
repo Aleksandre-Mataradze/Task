@@ -10,7 +10,7 @@ export class SearchBarService {
 
     private _userService = inject(UsersService)
 
-    getUserByUserData(data: string): Observable<any[]> {
+    getUserByUserData(data: string): Observable<any[]> { // Filter Users By Search Input
 
         return this._userService.getUsers()
         .pipe(
@@ -19,7 +19,7 @@ export class SearchBarService {
                 const splittedEmail = u.email.toLowerCase()
                 const search = data.toLowerCase()
 
-                return splittedName.includes(search) || splittedEmail.includes(search)
+                return splittedName.includes(search) || splittedEmail.includes(search) // Returns the user, regardless of whether they are searched by name or email
             }))
         )
     }

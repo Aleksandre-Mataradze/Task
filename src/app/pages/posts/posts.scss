@@ -22,19 +22,20 @@
             justify-content: space-between;
             gap: 16px;
             flex: 1 1 200px;
-            background-color: $whiteColor;
             border: 2px solid $secondaryBgColor;
+            color: $whiteColor;
             border-radius: 12px;
-            background-color: $cardBgColor;
+            background-color: $secondaryBgColor;
+            border-color: color-mix(in oklab, #189541 30%, transparent);
             
 
     
             .card-header{
-                padding: 6px 0 0 0;
+                padding: 6px 0 6px 0;
                 text-align: center;
+                border-bottom: 2px solid #00293b;
 
-                .user-name{
-                    border-bottom: 2px solid $secondaryBgColor;
+                .post-title{
                 }
             }
     
@@ -43,6 +44,7 @@
                 flex-direction: column;
                 gap: 6px;
                 padding: 10px 10px;
+                text-align: center;
             }
 
             .card-footer{

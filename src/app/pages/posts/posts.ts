@@ -27,12 +27,12 @@ export class Posts {
 
   }
 
-  redirectToUserPosts(): void{
+  redirectToUserPosts(): void{ // Routes to Posts Where Posts Are Filtered By User ID
 
     if (this._activeRoute.snapshot.paramMap.get('userId')) { // Check if userId parameter exists
       this.userId = Number(this._activeRoute.snapshot.paramMap.get('userId'));
 
-      this.postService.GetPosts(this.userId)
+      this.postService.GetPosts()
       .pipe(
         map(post => post.filter((post: any) => post.userId === this.userId)) // Filter posts by userId
       )
@@ -47,14 +47,13 @@ export class Posts {
     .subscribe({
       next: (data) => {
         this.posts.set(data);
-        console.log(data)
       },
       error: (error) => console.error(error)
     });
     }
   }
 
-  trackByID(index: number, post: any): number {
+  trackByID(index: number, post: any): number { // TrackBy For Loop in DOM
     return post.id
   }
 }

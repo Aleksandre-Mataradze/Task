@@ -23,11 +23,11 @@ export class SearchBar implements OnInit{
 
   }
 
-  catchInputData(): void{
+  catchInputData(): void{ // Method That Catches Input and Calls User Component User Display By Input 
     
     this.searchBar.valueChanges
     .pipe(
-      debounceTime(500),
+      debounceTime(500), // Triggers Input After 0.5s inactivity
       distinctUntilChanged()
     ).subscribe({
       next: (data) => {
@@ -44,8 +44,8 @@ export class SearchBar implements OnInit{
           error: (error) => console.log(error)
         })
         }
-        else{ // Calls Default User Display
-          this._usersComponent.getUsers() 
+        else{ 
+          this._usersComponent.getUsers() // Calls Default User Display
         }
       },
       error: (error) => console.log(error)

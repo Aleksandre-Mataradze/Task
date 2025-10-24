@@ -1,0 +1,71 @@
+@use '../../../styles/variables' as *;
+
+.main-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 96px;
+    padding: 48px 0;
+    background-color: $secondaryBgColor;
+    border-top: 1px solid #00293b;
+
+    .body{
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+
+        .list{
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            h3{
+                text-align: center;
+                color: $whiteColor;
+            }
+
+            ul{
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+
+                li{
+
+                    a{
+                        text-decoration: none;
+                        color: #9CA3AF;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        padding: 24px;
+        border-top: 1px solid #00293b;
+
+        .developer-name{
+            color: #9CA3AF;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .socials{
+            display: flex;
+            gap: 6px;
+
+            a{
+                color: #9CA3AF;
+                
+            }
+        }
+    }
+    
+}

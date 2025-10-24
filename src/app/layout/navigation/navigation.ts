@@ -13,12 +13,12 @@ export class Navigation {
   private _router = inject(Router)
   private _header = inject(Header)
 
-  RedirectToUsers() {
+  RedirectToUsers() { // Routes to Users Component
     this._router.navigate(['/users']);
     this._header.ToggleOverlay();
   }
 
-  RedirectToPosts() {
+  RedirectToPosts() { // Routes to Posts Component
     this._router.navigate(['/posts']);
     this._header.ToggleOverlay();
   }
